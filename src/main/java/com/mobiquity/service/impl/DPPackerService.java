@@ -45,7 +45,7 @@ class DPPackerService implements PackerService {
      *
      * @param packData pack data to be solved
      * @return optimum item indexes
-     * @see <a href="http://google.com">https://www.javatpoint.com/0-1-knapsack-problem</a>
+     * @see <a href="https://www.javatpoint.com/0-1-knapsack-problem">https://www.javatpoint.com/0-1-knapsack-problem</a>
      */
     private List<Integer> singleSolve(PackData packData) {
         int i, w;

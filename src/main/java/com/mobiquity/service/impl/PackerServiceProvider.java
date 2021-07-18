@@ -14,6 +14,12 @@ public class PackerServiceProvider {
 
     private static final Map<PackerType, PackerService> services = new HashMap<>();
 
+    /**
+     * Returns singleton concrete instance of {@link PackerService}
+     *
+     * @param packerType Type of packer algorithm
+     * @return {@link PackerService}
+     */
     public static PackerService getInstance(PackerType packerType) {
         //noinspection SwitchStatementWithTooFewBranches
         switch (packerType) {

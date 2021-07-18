@@ -23,7 +23,13 @@ public class PackerValidator {
 
     /**
      * Validate PackData and throw {@link APIException} is there is an error
-     *
+     * Items to check:
+     * <lo>
+     *     <li>total weight</li>
+     *     <li>Items count</li>
+     *     <li>Items weight</li>
+     *     <li>Items Cost</li>
+     * </lo>
      * @param packDataList given packData list
      * @throws APIException if there is error in packData
      */

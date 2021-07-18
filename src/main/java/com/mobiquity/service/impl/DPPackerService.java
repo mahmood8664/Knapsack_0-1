@@ -30,13 +30,13 @@ class DPPackerService implements PackerService {
      */
     @Override
     public List<Integer> solve(PackData packData) {
-        sortBasedOnWeight(packData);
+        sortItemsBasedOnWeight(packData);
         List<Integer> singleSolution = singleSolve(packData);
         Collections.sort(singleSolution);
         return singleSolution;
     }
 
-    private void sortBasedOnWeight(PackData packData) {
+    private void sortItemsBasedOnWeight(PackData packData) {
         packData.getPackItems().sort(Comparator.comparingInt(PackItem::getWeight));
     }
 
@@ -56,9 +56,8 @@ class DPPackerService implements PackerService {
          */
         int[][] solution = new int[size + 1][packData.getTotalWeight() + 1];
 
-        // Build table solution[][] in bottom up manner
-        for (i = 0; i <= size; i++) {//execute size+1 times
-            for (w = 0; w <= packData.getTotalWeight(); w++) {//execute totalWeight+1 times
+        for (i = 0; i <= size; i++) {
+            for (w = 0; w <= packData.getTotalWeight(); w++) {
                 if (i == 0 || w == 0) {
                     /*
                      * Max cost is Zero when the weight or the number of items are 0
@@ -101,6 +100,7 @@ class DPPackerService implements PackerService {
                  */
 
                 optimumItems.add(packData.getPackItems().get(i - 1).getIndex());
+
                 // Since this item is included, we deduct it's cost and weight from cost and weight variables
                 cost = cost - packData.getPackItems().get(i - 1).getCost();
                 weight = weight - packData.getPackItems().get(i - 1).getWeight();

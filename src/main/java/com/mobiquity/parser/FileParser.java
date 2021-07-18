@@ -47,11 +47,9 @@ public class FileParser {
             var lineNumber = new AtomicReference<>(0);
             var allPacksItems = new ArrayList<PackData>();
 
-            //read first line
             var line = reader.readLine();
             while (line != null) {
 
-                //increase current line number
                 lineNumber.getAndSet(lineNumber.get() + 1);
 
                 var matcher = LINE_PATTERN.matcher(line);
@@ -64,7 +62,6 @@ public class FileParser {
                 } else {
                     throw new APIException(String.format("There is a problem in processing file line %d", lineNumber.get()));
                 }
-                //read next line
                 line = reader.readLine();
             }
             return allPacksItems;

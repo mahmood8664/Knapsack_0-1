@@ -19,7 +19,7 @@ number of items and W is the total weight limit.
 1. JKD version: 11
 2. Maven (for building and packaging): version 3+
 ## How to use
-1. Build library by using mvn command. For installing it in you local maven repository run following 
+First you have to Build library by using mvn command. For installing it in you local maven repository run following 
 command:
 
 ```bash
